@@ -77,3 +77,11 @@
 - ios에서는 리스트 아이템이 하나여도 스크롤이 가능하다
 - 안드로이드에서는 부모의 flex가 1이여야만 작동한다.
 - contentContainerStyle을 통해서 flexbox를 디자인할 수있다. 하지만 flex:1 보다는 flexGrow:1 을 하는것이 에러가 없다.
+
+## FlatList 특징
+- itemData라는 객체를 생성하며, itemData객체안의 item이라는 객체에 data로 넘겨준 배열또는 객체가 담긴다. 
+- keyExtractor : default로는 객체로 전달 할때의 key값을 가진다.
+                key값을 갖고 있지 않을때, key값을 객체안의 값들중 하나로 지정할 수 있다. 인자로는 함수가 전달되어야한다. 함수의 리턴값은 key값이된다.
+- data : scroll 하고 싶은 list를 전달한다.
+- renderItem : 인자로 함수를 전달되어야한다. return값은 jsx로 작성되어야한다. 
+- contentContainerStyle : ScrollView와 같은 기능을 한다.
