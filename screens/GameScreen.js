@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { View, StyleSheet, Button, Alert } from "react-native";
 
 import NumberContainer from "../components/NumberContainer";
+import MainButton from "../components/MainButton";
 import Card from "../components/Card";
 import TitleText from "../components/TitleText";
 
@@ -63,14 +64,12 @@ const GameScreen = props => {
       <TitleText>Opponent's Number</TitleText>
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card style={styles.buttonContainer}>
-        <Button
-          title="LOWER"
-          onPress={guessNumberHandler.bind(this, "lower")}
-        />
-        <Button
-          title="GREATER"
-          onPress={guessNumberHandler.bind(this, "greater")}
-        />
+        <MainButton onPress={guessNumberHandler.bind(this, "lower")}>
+          LOWER
+        </MainButton>
+        <MainButton onPress={guessNumberHandler.bind(this, "greater")}>
+          GREATER
+        </MainButton>
       </Card>
     </View>
   );
