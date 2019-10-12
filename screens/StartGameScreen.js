@@ -9,9 +9,10 @@ import {
   Alert
 } from "react-native";
 
-import Card from "../components/Card";
 import Colors from "../constants/colors";
+import Card from "../components/Card";
 import Input from "../components/Input";
+import NumberContainer from "../components/NumberContainer";
 
 const StartGameScreen = props => {
   const [enteredNumber, setEnteredNumber] = useState("");
@@ -40,10 +41,18 @@ const StartGameScreen = props => {
     setConfirmed(true);
     setSelectedNumber(chosenNumber);
     setEnteredNumber("");
+    Keyboard.dismiss();
   };
+
   let confirmedOutput;
   if (confirmed) {
-    confirmedOutput = <Text>Chosen Number:{selectedNumber}</Text>;
+    confirmedOutput = (
+      <Card style={styles.summaryContainer}>
+        <Text>You selected</Text>
+        <NumberContainer>{selectedNumber}</NumberContainer>
+        <Button title="Start Game" />
+      </Card>
+    );
   }
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -106,6 +115,10 @@ const styles = StyleSheet.create({
   input: {
     width: 40,
     textAlign: "center"
+  },
+  summaryContainer: {
+    alignItems: "center",
+    marginTop: 50
   }
 });
 
