@@ -1,11 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
-import { View, StyleSheet, Alert, Text } from "react-native";
+import { View, StyleSheet, Alert, Text, ScrollView } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 import NumberContainer from "../components/NumberContainer";
 import MainButton from "../components/MainButton";
 import Card from "../components/Card";
 import TitleText from "../components/TitleText";
+import BodyText from "../components/BodyText";
+import Colors from "../constants/colors";
 
 const generateRandomBetween = (min, max, exclude) => {
   min = Math.ceil(min);
@@ -18,6 +20,15 @@ const generateRandomBetween = (min, max, exclude) => {
   } else {
     return rndNum;
   }
+};
+
+const guessListItem = (value, num0fRound) => {
+  return (
+    <View key={value} style={styles.listItem}>
+      <BodyText>#{num0fRound}</BodyText>
+      <BodyText>{value}</BodyText>
+    </View>
+  );
 };
 
 const GameScreen = props => {
@@ -71,11 +82,13 @@ const GameScreen = props => {
           <Ionicons name="md-arrow-dropup-circle" size={24} color="white" />
         </MainButton>
       </Card>
-      {pastGuesses.map(guess => (
-        <View key={guess}>
-          <Text>{guess}</Text>
-        </View>
-      ))}
+      <View style={styles.list}>
+        <ScrollView>
+          {pastGuesses.map((guess, index) =>
+            guessListItem(guess, pastGuesses.length - index)
+          )}
+        </ScrollView>
+      </View>
     </View>
   );
 };
@@ -92,6 +105,20 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     marginTop: 20
+  },
+  list: {
+    flex: 1,
+    width: "80%"
+  },
+  listItem: {
+    padding: 15,
+    borderWidth: 1,
+    borderColor: Colors.accent,
+    borderRadius: 10,
+    backgroundColor: "white",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginVertical: 10
   }
 });
 
