@@ -61,3 +61,13 @@
 
 ## 잊어 먹을 것 같은 것들
    - isNaN(number) : (number === NaN) 과 같은 의미 이며, (number === NaN)은 RN에서 체크가 되지 않는다. 
+  
+## font 적용하는법
+
+1. assets 디렉토리에 fonts 파일을 만든 후, 다운 받은 폰트스타일을 저장한다.
+2. expo-font 라이브러리의 Font객체를 사용한다.
+3. Font.loadAsync({}) 의 인자로 키 값과 키 밸류로 폰트스타일의 경로를 지정해준다.
+
+## AppLoaing 컴포넌트
+- expo에서 제공하는 컴포넌트로 로딩화면을 제공한다. 
+- startAsync, onFinish가 사용된다, startAsync는 로딩되기전에 끝내야할 작업들을 하도록 하는 prop이며, onFinish는 startAsync가 끝났을 때 실행되며, 여기서 AppLoaing을 나갈수 있도록 설정한다.
