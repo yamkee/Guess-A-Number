@@ -71,3 +71,9 @@
 ## AppLoaing 컴포넌트
 - expo에서 제공하는 컴포넌트로 로딩화면을 제공한다. 
 - startAsync, onFinish가 사용된다, startAsync는 로딩되기전에 끝내야할 작업들을 하도록 하는 prop이며, onFinish는 startAsync가 끝났을 때 실행되며, 여기서 AppLoaing을 나갈수 있도록 설정한다.
+
+## ScrollView 특징
+- 안드로이드에서는 리스트 아이템이 화면을 가득 채운 후에 작동 된다.
+- ios에서는 리스트 아이템이 하나여도 스크롤이 가능하다
+- 안드로이드에서는 부모의 flex가 1이여야만 작동한다.
+- contentContainerStyle을 통해서 flexbox를 디자인할 수있다. 하지만 flex:1 보다는 flexGrow:1 을 하는것이 에러가 없다.
