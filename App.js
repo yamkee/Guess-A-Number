@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import Header from "./components/Header";
 import StartGameScreen from "./screens/StartGameScreen";
 import GameScreen from "./screens/GameScreen";
-import { setRecoveryProps } from "expo/build/ErrorRecovery/ErrorRecovery";
 
 export default function App() {
   const [userNumber, setUserNumber] = useState();
