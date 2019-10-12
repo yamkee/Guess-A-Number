@@ -103,7 +103,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    marginVertical: 20
+    marginVertical: 20,
+    fontFamily: "open-sans"
   },
   inputContainer: { width: 300, maxWidth: "80%", alignItems: "center" },
   buttonContainer: {
