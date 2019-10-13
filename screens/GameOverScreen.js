@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Image, Text } from "react-native";
+import { View, StyleSheet, Image, Text, ScrollView } from "react-native";
 
 import TitleText from "../components/TitleText";
 import BodyText from "../components/BodyText";
@@ -9,20 +9,25 @@ import Colors from "../constants/colors";
 const GameOverScreen = props => {
   const { numOfRound, userNumber, onRestart } = props;
   return (
-    <View style={styles.screen}>
-      <TitleText>Game is over!</TitleText>
-      <View style={styles.imageContainer}>
-        <Image source={require("../assets/success.png")} style={styles.image} />
+    <ScrollView>
+      <View style={styles.screen}>
+        <TitleText>Game is over!</TitleText>
+        <View style={styles.imageContainer}>
+          <Image
+            source={require("../assets/success.png")}
+            style={styles.image}
+          />
+        </View>
+        <View style={styles.resultContainer}>
+          <BodyText style={styles.resultText}>
+            Your Phone needed <Text style={styles.highlight}>{numOfRound}</Text>{" "}
+            rounds to guess the number{" "}
+            <Text style={styles.highlight}>{userNumber}</Text>
+          </BodyText>
+        </View>
+        <MainButton onPress={onRestart}> Restart Game</MainButton>
       </View>
-      <View style={styles.resultContainer}>
-        <BodyText style={styles.resultText}>
-          Your Phone needed <Text style={styles.highlight}>{numOfRound}</Text>{" "}
-          rounds to guess the number{" "}
-          <Text style={styles.highlight}>{userNumber}</Text>
-        </BodyText>
-      </View>
-      <MainButton onPress={onRestart}> Restart Game</MainButton>
-    </View>
+    </ScrollView>
   );
 };
 
